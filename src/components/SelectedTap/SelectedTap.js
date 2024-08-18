@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import ReactGA from 'react-ga4';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   toggleInfoExpanded,
   toggleInfoWindow,
@@ -191,7 +191,7 @@ const SelectedTap = () => {
               open={showingInfoWindow}
               onOpen={() => handleToggleInfoWindow(true)}
               onClose={() => handleToggleInfoWindow(false)}
-              PaperProps={{ square: false }}
+              PaperProps={{ square: false, onClick: () => { if (!infoCollapseMobile) { setInfoCollapseMobile(true); } } }}
             >
               <SelectedTapDetails
                 image={tempImages.tapImg}
